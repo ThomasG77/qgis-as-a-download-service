@@ -13,7 +13,7 @@ See the process in action in below demo
 ## How to use it
 
 * Download project as a ZIP https://github.com/ThomasG77/qgis-as-a-download-service/archive/main.zip
-* Open the file `carte-etat-major.qgz`
+* Open the file `carte-etat-major.qgz` and uncompress
 * Click on the layer "Grille Carte Etat Major"
 * Select the tool "Run feature action" or "Exécute l'action d'entité" for French people, click on a tile from the grid. It will download it (in data directory) and add it. If existing in data, it will add it if not already in the group.
 
