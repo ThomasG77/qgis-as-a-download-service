@@ -1,6 +1,6 @@
 # QGIS as a download service
 
-# Purpose
+## Purpose
 
 The idea is to be able to consume data from https://geoservices.ign.fr/documentation/diffusion/index.html using extent instead of downloading massive files for small areas. In the future, we would like to give a drawing or a shp file as an input to select download URLs.
 
@@ -9,6 +9,13 @@ For the moment, we only have a demo using raster from the French "Carte d'État 
 See the process in action in below demo
 
 <img src="qgis-as-a-service-resized.gif"/>
+
+## How to use it
+
+* Download project as a ZIP https://github.com/ThomasG77/qgis-as-a-download-service/archive/main.zip
+* Open the file `carte-etat-major.qgz`
+* Click on the layer "Grille Carte Etat Major"
+* Select the tool "Run feature action" or "Exécute l'action d'entité" for French people, click on a tile from the grid. It will download it (in data directory) and add it. If existing in data, it will add it if not already in the group.
 
 ## Want to download all? Don't abuse and take another road with below recipe
 
