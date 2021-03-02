@@ -22,4 +22,4 @@ You may also use our script `download.sh` that do download, extract and do some 
 
 Mainly based on idea from Klas Karlsson (see below) but to ease OpenData consumption for GIS users
 
-<blockquote class="twitter-tweet"><p lang="en" dir="ltr">2&#39;000 raster files to keep track on and load into <a href="https://twitter.com/hashtag/QGIS?src=hash&amp;ref_src=twsrc%5Etfw">#QGIS</a> easily on demand?<br><br>Use:<br>gdaltindex -write_absolute_path index.shp *.tif<br><br>Add some Python code to an Action for the layer, and click in the map to load the raster!<br><br>(I used -f GPKG and *.nc, but you get the point) <a href="https://t.co/vz9mSQHJvh">pic.twitter.com/vz9mSQHJvh</a></p>&mdash; Klas Karlsson (@klaskarlsson) <a href="https://twitter.com/klaskarlsson/status/1159514845127028738?ref_src=twsrc%5Etfw">August 8, 2019</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+<a href="https://twitter.com/klaskarlsson/status/1159514845127028738"><img src="credit-klas-karlsson.png"></a>
