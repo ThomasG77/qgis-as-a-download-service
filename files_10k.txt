@@ -1,3 +1,0 @@
-ftp://SCAN_EM_10K_ext:ufeeY0nooKoWieph@ftp3.ign.fr/SCANEM10K_1-0__JP2-E100_LAMB93_R11_2010-06-01.7z.001
-ftp://SCAN_EM_10K_ext:ufeeY0nooKoWieph@ftp3.ign.fr/SCANEM10K_1-0__JP2-E100_LAMB93_R11_2010-06-01.7z.002
-ftp://SCAN_EM_10K_ext:ufeeY0nooKoWieph@ftp3.ign.fr/SCANEM10K_1-0__JP2-E100_LAMB93_R11_2010-06-01.7z.003

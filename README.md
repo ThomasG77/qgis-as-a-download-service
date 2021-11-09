@@ -39,3 +39,10 @@ You may also use our script `download.sh` that do download, extract and do some 
 Mainly based on idea from Klas Karlsson (see below) but to ease OpenData consumption for GIS users
 
 <a href="https://twitter.com/klaskarlsson/status/1159514845127028738"><img src="credit-klas-karlsson.png"></a>
+
+Data for SRTM 30m grid
+
+```
+wget https://dwtkns.com/srtm30m/srtm30m_bounding_boxes.json
+```
+

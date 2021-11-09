@@ -9,23 +9,37 @@ from qgis.core import (QgsProject, QgsRasterLayer, Qgis)
 import processing
 
 
+BASE_URL = 'https://step.esa.int/auxdata/dem/SRTMGL1'
+
+def download_nasa_with_credentials(dest, filename):
+    url = f"{BASE_URL}/{filename}"
+    redirectHandler = urllib.request.HTTPRedirectHandler()
+    cookieProcessor = urllib.request.HTTPCookieProcessor()
+    passwordManager = urllib.request.HTTPPasswordMgrWithDefaultRealm()
+    passwordManager.add_password(None, "https://urs.earthdata.nasa.gov", username, password)
+    authHandler = urllib.request.HTTPBasicAuthHandler(passwordManager)
+    opener = urllib.request.build_opener(redirectHandler,cookieProcessor,authHandler)
+    urllib.request.install_opener(opener)
+    return urllib.request.urlretrieve(url, f"{dest}/{filename}")
+
 def download_from_selection():
 
     project = QgsProject.instance()
     projet_file_name = project.fileName()
     root = project.layerTreeRoot()
-    mygroup = root.findGroup("Raster Etat Major")
+    mygroup = root.findGroup("Raster SRTM 30m")
     
     for feat in iface.activeLayer().selectedFeatures():
-        raster_path = Path(projet_file_name).parent / 'data' / feat['location']
+        raster_path = Path(projet_file_name).parent / 'data' / feat['dataFile']
         file_name = raster_path.stem
         if not raster_path.exists():
-            file_size = urllib.request.urlopen(f'https://labs.webgeodatavore.com/partage/SCANEM40K/{raster_path.name}').info().get('Content-Length')
             iface.messageBar().pushMessage(f"Downloading {file_name} before adding", level=Qgis.Info, duration=3)
-            urllib.request.urlretrieve(f'https://labs.webgeodatavore.com/partage/SCANEM40K/{raster_path.name}', raster_path)
+            url = f'{BASE_URL}/{raster_path.name}'
+            urllib.request.urlretrieve(url, raster_path)
+            # file_size = urllib.request.urlopen(f'https://labs.webgeodatavore.com/partage/SCANEM40K/{raster_path.name}').info().get('Content-Length')
         existing_layers_in_group = [l.name() for l in mygroup.children()]
         if file_name not in existing_layers_in_group:
-            raster_layer = QgsRasterLayer(f"{raster_path}", file_name)
+            raster_layer = QgsRasterLayer(f"/vsizip/{raster_path}/{file_name.split('.')[0]}.hgt", file_name)
             project.addMapLayer(raster_layer, False)
             mygroup.addLayer(raster_layer)
         else:
